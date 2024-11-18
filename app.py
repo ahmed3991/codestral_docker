@@ -49,6 +49,11 @@ pipe = pipeline(
 llm = HuggingFacePipeline(pipeline=pipe)
 output_parser = StrOutputParser()
 
+# Health check endpoint
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "live", "message": "Server is running"}), 200
+
 # Flask route to handle inference
 @app.route("/codestral", methods=["POST"])
 def codestral():
