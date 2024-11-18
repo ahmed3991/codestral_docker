@@ -27,12 +27,12 @@ WORKDIR /app
 
 RUN mkdir -p ~/.kaggle
 
-RUN ls
+RUN ls ~/.kaggle
 
 # Copy Kaggle API token (make sure it's in the same directory as the Dockerfile)
 COPY kaggle.json ~/.kaggle/kaggle.json
 
-RUN cat kaggle.json
+RUN ls ~/.kaggle
 
 RUN cat ~/.kaggle/kaggle.json
 
