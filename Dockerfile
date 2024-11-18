@@ -32,6 +32,8 @@ RUN ls ~/.kaggle
 # Copy Kaggle API token (make sure it's in the same directory as the Dockerfile)
 COPY kaggle.json ~/.kaggle/kaggle.json
 
+RUN echo "Bedda"
+
 RUN ls ~/.kaggle
 
 RUN cat ~/.kaggle/kaggle.json
