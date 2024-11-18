@@ -26,26 +26,23 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 WORKDIR /app
 
 # Copy app.py
+
+RUN ls /
+
+RUN mkdir -p /root/.kaggle
+
+RUN ls /root
+
 COPY app.py /app/app.py
 COPY kaggle.json /app/kaggle.json
 
-RUN ls /app
-
-RUN mkdir -p ~/.kaggle
-
-RUN ls ~/.kaggle
-
 # Copy Kaggle API token (make sure it's in the same directory as the Dockerfile)
-COPY kaggle.json ~/.kaggle/kaggle.json
+COPY kaggle.json /root/.kaggle/kaggle.json
 
-RUN echo "Bedda"
-
-RUN ls ~/.kaggle
-
-RUN cat ~/.kaggle/kaggle.json
+RUN cat /root/.kaggle/kaggle.json
 
 # Ensure proper permissions for the Kaggle API token
-RUN chmod 600 ~/.kaggle/kaggle.json
+RUN chmod 600 /root/.kaggle/kaggle.json
 
 # Download the model from Kaggle
 RUN kaggle models download -m ahmed3991/icodestral-22b-v0-1-hf-model -p /app/model && \
