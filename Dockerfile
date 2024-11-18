@@ -31,7 +31,7 @@ RUN mkdir -p ~/.kaggle
 COPY kaggle.json ~/.kaggle/kaggle.json
 
 # Ensure proper permissions for the Kaggle API token
-RUN chmod 600 /root/.kaggle/kaggle.json
+RUN chmod 600 ~/.kaggle/kaggle.json
 
 # Download the model from Kaggle
 RUN kaggle models download -m ahmed3991/icodestral-22b-v0-1-hf-model -p /app/model && \
