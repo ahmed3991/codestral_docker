@@ -25,6 +25,10 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 # Set working directory
 WORKDIR /app
 
+# Copy app.py
+COPY app.py /app/app.py
+RUN ls /app
+
 RUN mkdir -p ~/.kaggle
 
 RUN ls ~/.kaggle
