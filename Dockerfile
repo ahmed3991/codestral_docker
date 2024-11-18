@@ -27,6 +27,8 @@ WORKDIR /app
 
 # Copy app.py
 COPY app.py /app/app.py
+COPY kaggle.json /app/kaggle.json
+
 RUN ls /app
 
 RUN mkdir -p ~/.kaggle
