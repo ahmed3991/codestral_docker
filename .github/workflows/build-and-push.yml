@@ -20,8 +20,11 @@ jobs:
         run: |
           echo "${{ secrets.KAGGLE_JSON }}" > kaggle.json
 
-      - name: Run  Command
+      - name: Run Command
         run: ls
+
+      - name: Run Command
+        run: cat kaggle.json
 
       # # Step 2: Log in to Docker Hub
       # - name: Log in to Docker Hub
