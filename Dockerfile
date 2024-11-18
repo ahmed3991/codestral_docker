@@ -25,8 +25,10 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
 # Set working directory
 WORKDIR /app
 
+RUN mkdir -p ~/.kaggle
+
 # Copy Kaggle API token (make sure it's in the same directory as the Dockerfile)
-COPY kaggle.json /root/.kaggle/kaggle.json
+COPY kaggle.json ~/.kaggle/kaggle.json
 
 # Ensure proper permissions for the Kaggle API token
 RUN chmod 600 /root/.kaggle/kaggle.json
