@@ -33,11 +33,15 @@ COPY kaggle.json /root/.kaggle/kaggle.json
 # Ensure proper permissions for the Kaggle API token
 RUN chmod 600 /root/.kaggle/kaggle.json
 
+RUN mkdir -p /app/model
+
 # Download the model from Kaggle
-RUN kaggle models download -m ahmed3991/icodestral-22b-v0-1-hf-model -p /app/model && \
+RUN kaggle models instances versions download ahmed3991/icodestral-22b-v0-1-hf-model/pyTorch/icodestral-22b-v0-1-hf-model-v1/1 -p /app/model && \
     unzip /app/model/icodestral-22b-v0-1-hf-model.zip -d /app/model && \
     rm /app/model/icodestral-22b-v0-1-hf-model.zip && \
     rm /root/.kaggle/kaggle.json
+
+RUN ls /app/model
 
 # Copy app.py
 COPY app.py /app/app.py
